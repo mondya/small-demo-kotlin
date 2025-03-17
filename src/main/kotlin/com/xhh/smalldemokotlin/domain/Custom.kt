@@ -1,7 +1,8 @@
 package com.xhh.smalldemokotlin.domain
 
-data class Custom(
-    var id: Int?, 
-    var name: String?, 
+class CustomEntity(
+    var id: Long?,
+    var name: String?,
     var age: Int?
-)
+) {
+}
