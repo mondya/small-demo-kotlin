@@ -1,6 +1,6 @@
 package com.xhh.smalldemokotlin.controller
 
-import com.xhh.smalldemokotlin.domain.CustomEntity
+import com.xhh.smalldemokotlin.domain.CustomerEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 
@@ -9,6 +9,6 @@ class CustomController {
 
     @GetMapping("/index")
     fun index() {
-        val customEntity = CustomEntity(id = 1, name = "xhh", age = 18)
+        val customerEntity = CustomerEntity(null, "cus", 10, 1)
     }
 }
