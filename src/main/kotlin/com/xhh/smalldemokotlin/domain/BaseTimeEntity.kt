@@ -7,7 +7,7 @@ import jakarta.persistence.PreUpdate
 import java.util.Date
 
 @MappedSuperclass
-open class BaseTimeEntity(
+abstract class BaseTimeEntity(
     @Column
     open var dateCreated: Date,
     @Column
