@@ -1,28 +1,22 @@
 package com.xhh.smalldemokotlin.domain
 
 import jakarta.persistence.Column
+import jakarta.persistence.EntityListeners
 import jakarta.persistence.MappedSuperclass
-import jakarta.persistence.PrePersist
-import jakarta.persistence.PreUpdate
-import java.util.Date
+import org.springframework.data.annotation.CreatedDate
+import org.springframework.data.annotation.LastModifiedDate
+import org.springframework.data.jpa.domain.support.AuditingEntityListener
+import java.time.LocalDateTime
 
 @MappedSuperclass
-abstract class BaseTimeEntity(
-    @Column
-    open var dateCreated: Date,
-    @Column
-    open var lastUpdated: Date
-) {
-
-    @PrePersist
-    fun prePersist() {
-        this.dateCreated = Date()
-        this.lastUpdated = Date()
-    }
+@EntityListeners(AuditingEntityListener::class)
+abstract class BaseTimeEntity {
     
-    @PreUpdate
-    fun preUpdated() {
-        this.lastUpdated = Date()
-    }
-
+    @CreatedDate
+    @Column(name = "date_created", nullable = false, updatable = false)
+    var dateCreated: LocalDateTime = LocalDateTime.now()
+    
+    @LastModifiedDate
+    @Column(name = "last_updated", nullable = false)
+    var lastUpdated: LocalDateTime = LocalDateTime.now()
 }
