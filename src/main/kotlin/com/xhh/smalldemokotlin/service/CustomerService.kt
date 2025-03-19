@@ -4,7 +4,7 @@ import com.xhh.smalldemokotlin.domain.CustomerEntity
 import org.springframework.stereotype.Service
 
 @Service
-class CustomService {
+class CustomerService {
 
     fun findAll(): MutableList<CustomerEntity> {
         return mutableListOf()

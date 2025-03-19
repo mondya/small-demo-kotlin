@@ -7,14 +7,11 @@ import jakarta.persistence.Table
 
 @Entity
 @Table(name = "customer")
-class CustomerEntity {
+class CustomerEntity(
     @Id
-    var id: Long? = null
-    
-    @Column(name = "name")
-    var name: String? = null
-    
-    var age: Int? = null
-    
-    var status: Int? = null
+    var id: Long?,
+    var name: String?,
+    var age: Int?,
+    var status: Int?
+) {
 }

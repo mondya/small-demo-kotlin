@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository
 
 interface CustomerEntityRepository : JpaRepository<CustomerEntity, Long> {
 
-    fun findFirstById(id: Long): CustomerEntity
+    fun findFirstById(id: Long): CustomerEntity?
     
-    fun findAllByStatus(status: Int): List<CustomerEntity>
+    fun findAllByStatus(status: Int): List<CustomerEntity>?
 }
