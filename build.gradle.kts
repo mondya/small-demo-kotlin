@@ -47,15 +47,8 @@ repositories {
 dependencies {
     // 核心依赖
     implementation(libs.bundles.spring)      // Spring 相关依赖包（web, data-jpa）
-    implementation(libs.kotlin.reflect)      // Kotlin 反射库
-    
     // 数据库相关
     implementation(libs.mysql.connector)     // MySQL 数据库连接器
-    implementation(libs.hibernate.core)      // Hibernate ORM 框架
-    
-    // 工具库
-    implementation(libs.jackson.kotlin)      // Jackson JSON 处理的 Kotlin 模块
-    
     // 测试依赖
     testImplementation(libs.bundles.testing) // 测试相关依赖包
 }
