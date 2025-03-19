@@ -1,0 +1,60 @@
+# ==================================
+# 版本目录配置文件 (Version Catalog)
+# 集中管理所有依赖版本和插件信息
+# ==================================
+
+# ----- 版本号配置 -----
+[versions]
+# 核心版本
+kotlin = "1.9.25"                # Kotlin 语言版本
+springBoot = "3.4.3"             # Spring Boot 框架版本
+springDependencyManagement = "1.1.7"  # Spring 依赖管理插件版本
+
+# 数据库相关版本
+mysql = "8.0.19"                 # MySQL 连接器版本
+hibernate = "6.4.2.Final"        # Hibernate ORM 框架版本
+
+# 工具库版本
+jackson = "2.15.2"               # Jackson JSON 处理库版本
+slf4j = "2.0.9"                  # SLF4J 日志门面版本
+
+# ----- 依赖库配置 -----
+[libraries]
+# Spring 相关依赖
+spring-boot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web" }         # Spring Web 依赖包
+spring-boot-starter-data-jpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa" } # Spring Data JPA 依赖包
+spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test" }       # Spring 测试依赖包
+
+# Kotlin 相关依赖
+kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect" }                    # Kotlin 反射库
+kotlin-test-junit5 = { module = "org.jetbrains.kotlin:kotlin-test-junit5" }            # Kotlin JUnit5 测试库
+
+# 数据库相关依赖
+mysql-connector = { module = "mysql:mysql-connector-java", version.ref = "mysql" }     # MySQL JDBC 驱动
+hibernate-core = { module = "org.hibernate:hibernate-core", version.ref = "hibernate" } # Hibernate 核心库
+
+# JSON 处理依赖
+jackson-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin", version.ref = "jackson" } # Jackson Kotlin 模块
+
+# 日志相关依赖
+slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }                  # SLF4J API 接口
+
+# 测试相关依赖
+junit-platform = { module = "org.junit.platform:junit-platform-launcher" }              # JUnit 平台启动器
+
+# ----- 插件配置 -----
+[plugins]
+# Kotlin 插件
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }                # Kotlin JVM 插件
+kotlin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin" }   # Kotlin Spring 插件
+kotlin-jpa = { id = "org.jetbrains.kotlin.plugin.jpa", version.ref = "kotlin" }         # Kotlin JPA 插件
+
+# Spring 插件
+spring-boot = { id = "org.springframework.boot", version.ref = "springBoot" }           # Spring Boot 插件
+spring-dependency-management = { id = "io.spring.dependency-management", version.ref = "springDependencyManagement" } # 依赖管理插件
+
+# ----- 依赖包组配置 -----
+[bundles]
+# 将相关依赖打包在一起，便于统一引用
+spring = ["spring-boot-starter-web", "spring-boot-starter-data-jpa"]     # Spring 核心依赖包
+testing = ["spring-boot-starter-test", "kotlin-test-junit5", "junit-platform"] # 测试相关依赖包 

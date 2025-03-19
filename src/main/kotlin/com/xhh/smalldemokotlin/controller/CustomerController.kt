@@ -28,8 +28,9 @@ class CustomerController(
     }
 
     @PostMapping
-    fun createCustomer(@RequestBody customer: CustomerEntity): ResponseEntity<CustomerEntity> {
-        return ResponseEntity.status(HttpStatus.CREATED).body(customerService.save(customer))
+    fun createCustomer(@RequestBody(required = false) customer: CustomerEntity?): ResponseEntity<CustomerEntity> {
+        val c = CustomerEntity(null, "customer.name", 20, 1)
+        return ResponseEntity.status(HttpStatus.CREATED).body(customerService.save(c))
     }
 
     @PutMapping("/{id}")
