@@ -1,6 +1,7 @@
 package com.xhh.smalldemokotlin.service
 
 import com.xhh.smalldemokotlin.domain.CustomerEntity
+import com.xhh.smalldemokotlin.module.ResultVO
 import com.xhh.smalldemokotlin.repository.CustomerEntityRepository
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
@@ -10,8 +11,8 @@ class CustomerService(
     private val customerEntityRepository: CustomerEntityRepository
 ) {
 
-    fun findAll(): List<CustomerEntity> {
-        return customerEntityRepository.findAll()
+    fun findAll(): List<CustomerEntity>? {
+        return customerEntityRepository.findAllByStatus(1)
     }
 
     fun findFirstById(id: Long): CustomerEntity? {

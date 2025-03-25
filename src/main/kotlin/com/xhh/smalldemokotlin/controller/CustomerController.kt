@@ -1,6 +1,7 @@
 package com.xhh.smalldemokotlin.controller
 
 import com.xhh.smalldemokotlin.domain.CustomerEntity
+import com.xhh.smalldemokotlin.module.ResultVO
 import com.xhh.smalldemokotlin.service.CustomerService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -13,8 +14,11 @@ class CustomerController(
 ) {
 
     @GetMapping
-    fun getAllCustomers(): ResponseEntity<List<CustomerEntity>> {
-        return ResponseEntity.ok(customerService.findAll())
+    fun getAllCustomers(): ResultVO {
+        val resultVO = ResultVO(1, "success")
+        val customers = customerService.findAll()
+        resultVO.result["list"] = customers
+        return resultVO
     }
 
     @GetMapping("/{id}")

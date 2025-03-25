@@ -49,6 +49,9 @@ dependencies {
     implementation(libs.bundles.spring)      // Spring 相关依赖包（web, data-jpa）
     // 数据库相关
     implementation(libs.mysql.connector)     // MySQL 数据库连接器
+    
+    implementation(libs.kotlin.reflect)
+    
     // 测试依赖
     testImplementation(libs.bundles.testing) // 测试相关依赖包
 }
