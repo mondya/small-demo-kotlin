@@ -54,6 +54,9 @@ dependencies {
     
     // 测试依赖
     testImplementation(libs.bundles.testing) // 测试相关依赖包
+    
+//    // groovy 依赖
+//    implementation(libs.groovy)
 }
 
 // Kotlin 编译器配置
@@ -68,6 +71,18 @@ allOpen {
     annotation("jakarta.persistence.Entity")         // 对所有 @Entity 注解的类开放
     annotation("jakarta.persistence.MappedSuperclass") // 对所有 @MappedSuperclass 注解的类开放
     annotation("jakarta.persistence.Embeddable")     // 对所有 @Embeddable 注解的类开放
+}
+
+sourceSets {
+    main {
+        kotlin {
+            srcDirs("src/main/kotlin")      // 添加 Kotlin 源代码目录
+        }
+        
+        java {
+            srcDirs("src/main/java")
+        }
+    }
 }
 
 // 测试任务配置
