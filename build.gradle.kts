@@ -10,6 +10,7 @@ plugins {
     alias(libs.plugins.spring.boot)          // Spring Boot 插件
     alias(libs.plugins.spring.dependency.management)  // Spring 依赖管理插件
     alias(libs.plugins.kotlin.jpa)           // Kotlin JPA 插件，提供 JPA 支持
+    alias(libs.plugins.groovy) // groovy插件，支持识别到groovy代码
 }
 
 // 方法1：使用 ext 块集中管理版本号
@@ -55,8 +56,8 @@ dependencies {
     // 测试依赖
     testImplementation(libs.bundles.testing) // 测试相关依赖包
     
-//    // groovy 依赖
-//    implementation(libs.groovy)
+    // groovy 依赖
+    implementation(libs.groovy)
 }
 
 // Kotlin 编译器配置
@@ -81,6 +82,10 @@ sourceSets {
         
         java {
             srcDirs("src/main/java")
+        }
+        
+        groovy{
+            srcDirs("src/main/groovy")
         }
     }
 }
