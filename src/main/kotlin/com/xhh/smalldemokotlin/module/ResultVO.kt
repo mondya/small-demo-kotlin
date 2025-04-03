@@ -3,12 +3,12 @@ package com.xhh.smalldemokotlin.module
 data class ResultVO(
     var status: Int?,
     var message: String?,
-    var result: MutableMap<String, Any?>? = mutableMapOf()
+    var result: MutableMap<String, Any?> = mutableMapOf()
 ) {
 
-    constructor() : this(null, null, null)
+    constructor() : this(null, null, mutableMapOf())
 
-    fun success(result: MutableMap<String, Any?>?): ResultVO {
+    fun success(result: MutableMap<String, Any?>): ResultVO {
         val resultVO = ResultVO()
         resultVO.status = 1
         resultVO.message = "success"
