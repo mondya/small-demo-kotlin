@@ -11,8 +11,8 @@ class CustomerService(
     private val customerEntityRepository: CustomerEntityRepository
 ) {
 
-    fun findAll(): List<CustomerEntity>? {
-        return customerEntityRepository.findAllByStatus(1)
+    fun findAll(): List<CustomerEntity> {
+        return customerEntityRepository.findAllByStatus(1) ?: emptyList()
     }
 
     fun findFirstById(id: Long): CustomerEntity? {

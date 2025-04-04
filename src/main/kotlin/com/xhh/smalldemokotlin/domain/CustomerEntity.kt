@@ -59,6 +59,22 @@ class CustomerEntity(
     override fun toString(): String {
         return "CustomerEntity(id=$id, name=$name, age=$age, status=$status, dateCreated=$dateCreated, lastUpdated=$lastUpdated)"
     }
+    
+    fun toMap(): MutableMap<String, Any> {
+        val map = mutableMapOf<String, Any>()
+        this.id?.let { 
+            map["id"] = it
+        }
+        
+        this.name?.let { 
+            map["name"] = it
+        }
+        
+        this.age?.let { 
+            map["age"] = it
+        }
+        return map
+    }
 }
     
 

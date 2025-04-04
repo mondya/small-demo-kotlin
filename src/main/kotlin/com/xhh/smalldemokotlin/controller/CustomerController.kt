@@ -5,6 +5,7 @@ import com.xhh.smalldemokotlin.module.ResultVO
 import com.xhh.smalldemokotlin.service.CustomerService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
+import org.springframework.util.CollectionUtils
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -17,18 +18,23 @@ class CustomerController(
     fun getAllCustomers(): ResultVO {
         val resultVO = ResultVO(1, "success")
         val customers = customerService.findAll()
+        
+        if (!CollectionUtils.isEmpty(customers)) {
+            resultVO.result["list"] = customers
+        }
+        
         resultVO.result["list"] = customers
         return resultVO
     }
 
     @GetMapping("/{id}")
-    fun getCustomerById(@PathVariable(name = "id") id: Long): ResponseEntity<CustomerEntity> {
+    fun getCustomerById(@PathVariable(name = "id") id: Long): ResultVO {
         val customer = customerService.findFirstById(id)
-        return if (customer != null) {
-            ResponseEntity.ok(customer)
-        } else {
-            ResponseEntity.notFound().build()
+        if (customer != null) {
+            return ResultVO().success(customer.toMap())
         }
+        
+        return ResultVO()
     }
 
     @PostMapping
