@@ -98,3 +98,6 @@ sourceSets {
 tasks.withType<Test> {
     useJUnitPlatform()                      // 使用 JUnit 5 平台运行测试
 }
+tasks.withType<Copy> {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}

@@ -30,7 +30,7 @@ spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-star
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect" }                    # Kotlin 反射库
 kotlin-test-junit5 = { module = "org.jetbrains.kotlin:kotlin-test-junit5" }            # Kotlin JUnit5 测试库
 
-groovy = { module = "org.codehaus.groovy:groovy-all", version.ref = "groovy" }
+groovy = { module = "org.apache.groovy:groovy-all", version.ref = "groovy" }
 
 # 数据库相关依赖
 mysql-connector = { module = "mysql:mysql-connector-java", version.ref = "mysql" }     # MySQL JDBC 驱动
