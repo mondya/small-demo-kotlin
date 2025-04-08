@@ -60,8 +60,8 @@ class CustomerEntity(
         return "CustomerEntity(id=$id, name=$name, age=$age, status=$status, dateCreated=$dateCreated, lastUpdated=$lastUpdated)"
     }
     
-    fun toMap(): MutableMap<String, Any> {
-        val map = mutableMapOf<String, Any>()
+    fun toMap(): MutableMap<String, Any?> {
+        val map = mutableMapOf<String, Any?>()
         this.id?.let { 
             map["id"] = it
         }

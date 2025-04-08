@@ -87,6 +87,10 @@ sourceSets {
         groovy{
             srcDirs("src/main/groovy")
         }
+        
+        resources {
+            srcDirs("src/main/resources")   // 添加资源文件目录
+        }
     }
 }
 
