@@ -15,6 +15,13 @@ data class ResultVO(
         resultVO.result = result
         return resultVO
     }
+    
+    fun success(): ResultVO {
+        val resultVO = ResultVO()
+        resultVO.status = 1
+        resultVO.message = "success"
+        return resultVO
+    }
 
     fun fail(message: String?): ResultVO {
         val resultVO = ResultVO()

@@ -47,7 +47,11 @@ repositories {
 // 依赖配置 - 使用 Version Catalog 从 libs.versions.toml 引用依赖
 dependencies {
     // 核心依赖
-    implementation(libs.bundles.spring)      // Spring 相关依赖包（web, data-jpa）
+    implementation(libs.bundles.spring)  {// Spring 相关依赖包（web, data-jpa）
+        // 移除tomcat，使用undertow
+        exclude("org.springframework.boot", "spring-boot-starter-tomcat")
+    }
+    implementation("org.springframework.boot:spring-boot-starter-undertow")
     // 数据库相关
     implementation(libs.mysql.connector)     // MySQL 数据库连接器
     
