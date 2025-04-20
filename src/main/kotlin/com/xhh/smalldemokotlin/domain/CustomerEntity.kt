@@ -1,6 +1,6 @@
 package com.xhh.smalldemokotlin.domain
 
-import jakarta.persistence.*
+import javax.persistence.*
 import org.hibernate.annotations.DynamicInsert
 import org.hibernate.annotations.DynamicUpdate
 

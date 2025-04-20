@@ -41,6 +41,14 @@ java {
 
 // 仓库配置 - 指定从哪里下载依赖
 repositories {
+    
+    maven {
+        url = uri("https://maven.aliyun.com/repository/spring/")
+    }
+    maven {
+        url = uri("https://maven.aliyun.com/repository/public/")
+    }
+    
     mavenCentral()                           // 使用 Maven 中央仓库
 }
 
