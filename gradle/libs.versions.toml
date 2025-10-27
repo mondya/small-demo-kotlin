@@ -26,6 +26,7 @@ slf4j = "2.0.9"                  # SLF4J 日志门面版本
 spring-boot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web" }         # Spring Web 依赖包
 spring-boot-starter-data-jpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa" } # Spring Data JPA 依赖包
 spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test" }       # Spring 测试依赖包
+spring-boot-starter-redis = { module = "org.springframework.boot:spring-boot-starter-data-redis" }
 
 # Kotlin 相关依赖
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect" }                    # Kotlin 反射库
@@ -63,5 +64,5 @@ spring-dependency-management = { id = "io.spring.dependency-management", version
 # ----- 依赖包组配置 -----
 [bundles]
 # 将相关依赖打包在一起，便于统一引用
-spring = ["spring-boot-starter-web", "spring-boot-starter-data-jpa"]     # Spring 核心依赖包
+spring = ["spring-boot-starter-web", "spring-boot-starter-data-jpa", "spring-boot-starter-redis"]     # Spring 核心依赖包
 testing = ["spring-boot-starter-test", "kotlin-test-junit5", "junit-platform"] # 测试相关依赖包 
