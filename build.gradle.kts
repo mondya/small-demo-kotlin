@@ -85,9 +85,9 @@ kotlin {
 
 // JPA 实体类配置 - 自动为标注的类生成无参构造函数和开放类
 allOpen {
-    annotation("jakarta.persistence.Entity")         // 对所有 @Entity 注解的类开放
-    annotation("jakarta.persistence.MappedSuperclass") // 对所有 @MappedSuperclass 注解的类开放
-    annotation("jakarta.persistence.Embeddable")     // 对所有 @Embeddable 注解的类开放
+    annotation("javax.persistence.Entity")         // 对所有 @Entity 注解的类开放
+    annotation("javax.persistence.MappedSuperclass") // 对所有 @MappedSuperclass 注解的类开放
+    annotation("javax.persistence.Embeddable")     // 对所有 @Embeddable 注解的类开放
 }
 
 sourceSets {
